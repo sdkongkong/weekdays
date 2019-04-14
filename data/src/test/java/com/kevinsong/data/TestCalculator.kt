@@ -51,7 +51,7 @@ class TestCalculator {
         Assert.assertEquals(0, calc.getWeekDays())
     }
 
-    //new year on Sunday
+    //new year on Staturday
     @Test
     fun testNewYearOnSaturday(){
         val startDate = LocalDate.parse("2010-12-31")
@@ -60,5 +60,89 @@ class TestCalculator {
         Assert.assertEquals(0, calc.getWeekDays())
     }
 
+    //Australia day on weekdays
+    @Test
+    fun testAustraliaDay(){
+        val startDate = LocalDate.parse("2018-01-24")
+        val endDate = LocalDate.parse("2018-01-30")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(2, calc.getWeekDays())
+    }
+
+    //Australia day on Sunday
+    @Test
+    fun testAustraliaDayOnSunday(){
+        val startDate = LocalDate.parse("2014-01-25")
+        val endDate = LocalDate.parse("2014-01-28")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekDays())
+    }
+
+    //Australia day on Staturday
+    @Test
+    fun testAustraliaDayOnSaturday(){
+        val startDate = LocalDate.parse("2019-01-25")
+        val endDate = LocalDate.parse("2019-01-30")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+
+    //AnzacDay on weekdays
+    @Test
+    fun testAnzacDay(){
+        val startDate = LocalDate.parse("2019-04-23")
+        val endDate = LocalDate.parse("2019-04-26")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+    //AnzacDay on weekend, no make up for Anzac day even in weekend
+    @Test
+    fun testAnzacDayOnWeekend(){
+        val startDate = LocalDate.parse("2015-04-24")
+        val endDate = LocalDate.parse("2015-04-28")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+    //queen's birthday
+    @Test
+   fun testQueensBirthday(){
+        val startDate = LocalDate.parse("2019-06-06")
+        val endDate = LocalDate.parse("2019-06-11")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+
+    //labour day
+    @Test
+    fun testLabourDay(){
+        val startDate = LocalDate.parse("2019-10-04")
+        val endDate = LocalDate.parse("2019-10-09")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+
+    //chirstmax
+    @Test
+    fun testChirstmaxHoliday(){
+        val startDate = LocalDate.parse("2019-12-23")
+        val endDate = LocalDate.parse("2019-12-27")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+
+    //easter
+    @Test
+    fun testEasterHoliday(){
+        val startDate = LocalDate.parse("2019-04-18")
+        val endDate = LocalDate.parse("2019-04-29")
+        val calc = Calculator(startDate, endDate)
+        //only ask 3 days annual leave, you get 10 days off
+        Assert.assertEquals(3, calc.getWeekDays())
+    }
 
 }
