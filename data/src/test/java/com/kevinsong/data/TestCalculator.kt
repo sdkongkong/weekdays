@@ -18,7 +18,7 @@ class TestCalculator {
 
     //same day for start & end
     @Test
-    fun testWeenendSameDay() {
+    fun testWeekendSameDay() {
         val startDate = LocalDate.parse("2019-04-11")
         val endDate = LocalDate.parse("2019-04-11")
         val calc = Calculator(startDate, endDate)
@@ -27,11 +27,38 @@ class TestCalculator {
 
     //start from weekend
     @Test
-    fun testWeenendStartWeekend() {
+    fun testWeekendStartWeekend() {
         val startDate = LocalDate.parse("2019-04-06")
         val endDate = LocalDate.parse("2019-04-12")
         val calc = Calculator(startDate, endDate)
         Assert.assertEquals(4, calc.getWeekDays())
     }
+
+    //new year on weekdays
+    @Test
+    fun testNewYear(){
+        val startDate = LocalDate.parse("2018-12-31")
+        val endDate = LocalDate.parse("2019-01-03")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekDays())
+    }
+    //new year on Sunday
+    @Test
+    fun testNewYearOnSunday(){
+        val startDate = LocalDate.parse("2016-12-31")
+        val endDate = LocalDate.parse("2017-01-03")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekDays())
+    }
+
+    //new year on Sunday
+    @Test
+    fun testNewYearOnSaturday(){
+        val startDate = LocalDate.parse("2010-12-31")
+        val endDate = LocalDate.parse("2011-01-03")
+        val calc = Calculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekDays())
+    }
+
 
 }
