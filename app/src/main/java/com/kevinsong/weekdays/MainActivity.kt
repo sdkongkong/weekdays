@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.DatePicker
 import com.kevinsong.data.Calculator
+import com.kevinsong.data.NSWCalculator
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDate
 import java.time.format.DateTimeParseException
@@ -61,8 +62,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calcWeekDays() {
-        val calc = Calculator(startDate, endDate)
-        tv_res.text = "the week days is ${calc.getWeekDays()}"
+        val calc = NSWCalculator(startDate, endDate)
+        tv_res.text = "the week days is ${calc.getWeekdays()}"
 
 
     }

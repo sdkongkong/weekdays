@@ -1,14 +1,9 @@
 package com.kevinsong.data
 
-import java.time.*
-import java.time.format.DateTimeFormatter
-import java.time.temporal.TemporalAdjusters
-import java.time.temporal.WeekFields
-import java.util.*
+import java.time.LocalDate
 
-class Calculator(var startDate: LocalDate, val endDate: LocalDate) {
-
-    public fun getWeekDays(): Int {
+open class BasicCalculator(var startDate: LocalDate, var endDate: LocalDate) : Claculator {
+    override fun getWeekdays(): Int {
         var numWeekDays = 0;
         while (true) {
             startDate = startDate.plusDays(1)
@@ -21,8 +16,13 @@ class Calculator(var startDate: LocalDate, val endDate: LocalDate) {
             if (startDate.isQueuesBirthday()) continue
             if (startDate.isLaborDay()) continue
             if (startDate.isChirstmasHoliday()) continue
-            numWeekDays++
+            if (startDate.isChirstmasHoliday()) continue
+                numWeekDays++
         }
         return numWeekDays
+    }
+
+    open fun isCustomHoliday(startDate: LocalDate): Boolean {
+        return false
     }
 }
