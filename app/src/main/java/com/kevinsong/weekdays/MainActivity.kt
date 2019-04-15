@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.DatePicker
-import com.kevinsong.data.Calculator
 import com.kevinsong.data.NSWCalculator
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDate

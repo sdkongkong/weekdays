@@ -12,8 +12,8 @@ class TestCalculator {
     fun testWeekend() {
         val startDate = LocalDate.parse("2019-04-11")
         val endDate = LocalDate.parse("2019-04-16")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(2, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(2, calc.getWeekdays())
     }
 
     //same day for start & end
@@ -21,8 +21,8 @@ class TestCalculator {
     fun testWeekendSameDay() {
         val startDate = LocalDate.parse("2019-04-11")
         val endDate = LocalDate.parse("2019-04-11")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(0, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekdays())
     }
 
     //start from weekend
@@ -30,8 +30,8 @@ class TestCalculator {
     fun testWeekendStartWeekend() {
         val startDate = LocalDate.parse("2019-04-06")
         val endDate = LocalDate.parse("2019-04-12")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(4, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(4, calc.getWeekdays())
     }
 
     //new year on weekdays
@@ -39,16 +39,16 @@ class TestCalculator {
     fun testNewYear(){
         val startDate = LocalDate.parse("2018-12-31")
         val endDate = LocalDate.parse("2019-01-03")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
     //new year on Sunday
     @Test
     fun testNewYearOnSunday(){
         val startDate = LocalDate.parse("2016-12-31")
         val endDate = LocalDate.parse("2017-01-03")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(0, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekdays())
     }
 
     //new year on Staturday
@@ -56,8 +56,8 @@ class TestCalculator {
     fun testNewYearOnSaturday(){
         val startDate = LocalDate.parse("2010-12-31")
         val endDate = LocalDate.parse("2011-01-03")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(0, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekdays())
     }
 
     //Australia day on weekdays
@@ -65,8 +65,8 @@ class TestCalculator {
     fun testAustraliaDay(){
         val startDate = LocalDate.parse("2018-01-24")
         val endDate = LocalDate.parse("2018-01-30")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(2, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(2, calc.getWeekdays())
     }
 
     //Australia day on Sunday
@@ -74,8 +74,8 @@ class TestCalculator {
     fun testAustraliaDayOnSunday(){
         val startDate = LocalDate.parse("2014-01-25")
         val endDate = LocalDate.parse("2014-01-28")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(0, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(0, calc.getWeekdays())
     }
 
     //Australia day on Staturday
@@ -83,8 +83,8 @@ class TestCalculator {
     fun testAustraliaDayOnSaturday(){
         val startDate = LocalDate.parse("2019-01-25")
         val endDate = LocalDate.parse("2019-01-30")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
 
@@ -93,8 +93,8 @@ class TestCalculator {
     fun testAnzacDay(){
         val startDate = LocalDate.parse("2019-04-23")
         val endDate = LocalDate.parse("2019-04-26")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
     //AnzacDay on weekend, no make up for Anzac day even in weekend
@@ -102,8 +102,8 @@ class TestCalculator {
     fun testAnzacDayOnWeekend(){
         val startDate = LocalDate.parse("2015-04-24")
         val endDate = LocalDate.parse("2015-04-28")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
     //queen's birthday
@@ -111,8 +111,8 @@ class TestCalculator {
    fun testQueensBirthday(){
         val startDate = LocalDate.parse("2019-06-06")
         val endDate = LocalDate.parse("2019-06-11")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
 
@@ -121,8 +121,8 @@ class TestCalculator {
     fun testLabourDay(){
         val startDate = LocalDate.parse("2019-10-04")
         val endDate = LocalDate.parse("2019-10-09")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
 
@@ -131,8 +131,8 @@ class TestCalculator {
     fun testChirstmaxHoliday(){
         val startDate = LocalDate.parse("2019-12-23")
         val endDate = LocalDate.parse("2019-12-27")
-        val calc = Calculator(startDate, endDate)
-        Assert.assertEquals(1, calc.getWeekDays())
+        val calc = NSWCalculator(startDate, endDate)
+        Assert.assertEquals(1, calc.getWeekdays())
     }
 
     //easter
@@ -140,9 +140,9 @@ class TestCalculator {
     fun testEasterHoliday(){
         val startDate = LocalDate.parse("2019-04-18")
         val endDate = LocalDate.parse("2019-04-29")
-        val calc = Calculator(startDate, endDate)
+        val calc = NSWCalculator(startDate, endDate)
         //only ask 3 days annual leave, you get 10 days off
-        Assert.assertEquals(3, calc.getWeekDays())
+        Assert.assertEquals(3, calc.getWeekdays())
     }
 
 }
